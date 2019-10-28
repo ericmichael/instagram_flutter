@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/blocs/postsbloc.dart';
+import 'package:instagram_clone/blocs/instagrambloc.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(appBar: AppBar(title: Text("Login"),), body: Column(children: <Widget>[
       TextField(controller: usernameCtrl,),
-      TextField(controller: passwordCtrl,),
+      TextField(controller: passwordCtrl, obscureText: true,),
       RaisedButton(child: Text("Login"), onPressed: () async {
         //fetch token
         bloc.attemptLogin(usernameCtrl.text, passwordCtrl.text);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/blocs/postsbloc.dart';
+import 'package:instagram_clone/blocs/instagrambloc.dart';
 import 'package:instagram_clone/screens/loadingscreen.dart';
 import 'package:provider/provider.dart';
 import 'screens/loginscreen.dart';

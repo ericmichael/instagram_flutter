@@ -81,7 +81,18 @@ class InstagramBloc extends ChangeNotifier {
   }
 
   Future<bool> fetchTimeline() async {
-    return true;
+    var response = await http.get(
+        "https://nameless-escarpment-45560.herokuapp.com/api/v1/posts",
+        headers: {HttpHeaders.authorizationHeader: "Bearer $token"});
+    if(response.statusCode == 200){
+      List<dynamic> serverPosts = json.decode(response.body);
+      for(int i = 0; i < serverPosts.length; i++){
+        timeline.add(Post.fromJson(serverPosts[i]));
+
+      }
+      return true;
+    }
+    return false;
   }
 
   Future<bool> fetchAccount() async {
